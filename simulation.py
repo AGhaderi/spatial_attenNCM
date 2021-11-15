@@ -1,4 +1,7 @@
 import numpy as np
+import os
+import scipy.io as sio
+import utils
 
 
 # Simulate diffusion models
