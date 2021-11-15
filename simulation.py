@@ -141,7 +141,7 @@ def boot_genparam(model='modelt', nboots = 1, nsamples=1000, ntrials=300):
     
     if not os.path.isfile('r_square/genparam_'+str(nboots)+'.mat'): 
 
-        # nboots is the number of boosterapping samples which is 1 to 30
+        # nboots is related to bootstraping run which is 1 to 30
         # number of condition
         nconds = 4
 
