@@ -137,73 +137,7 @@ def simulratcliff(N=100,Alpha=1,Tau=.4,Nu=1,Beta=.5,rangeTau=0,rangeBeta=0,Eta=.
     result = T*XX
     return result
 
-def get_posterior_predictives_group(samples, nsamples=1000, ntrials=300, model = 'modelt'):
-    """Calculates posterior predictives of choices and response times.
-       Hierarchical and condition-level parameters
-    """      
-    nconds = 4  # Number of conditions
-    ncohers = 2 # Number of spatial   
-    nspats = 2  # Number of coherence
-    
-    rt = np.zeros((nconds,nsamples*ntrials))
-    acc = np.zeros((nconds,nsamples*ntrials))
-    
-    # hierarchical parameters
-    deltahier = samples['deltahier']
-    terhier = samples['terhier']
-    alphahier = samples['alphahier']
-    etahier = samples['etahier']
-    
-    if model=='modelt':
-        for k in range(ncohers):
-            for j in range(nspats):             
-                indextrack = np.arange(ntrials)
-                for i in range(nsamples):
-                    tempout = simulratcliff(N=ntrials, Alpha= alphahier[i], Tau= terhier[i,j], Beta=.5, 
-                        Nu= deltahier[i,k], Eta = etahier[i])
-                    tempx = np.sign(np.real(tempout))
-                    tempt = np.abs(np.real(tempout))
-                    rt[k*2+j,indextrack] = tempt
-                    acc[k*2+j,indextrack] = (tempx + 1)/2
-                    indextrack += ntrials
-    elif model=='modelv':
-        for k in range(nconds):
-            indextrack = np.arange(ntrials)
-            for i in range(nsamples):
-                tempout = simulratcliff(N=ntrials, Alpha= alphahier[i], Tau= terhier[i], Beta=.5, 
-                    Nu= deltahier[i,k], Eta= etahier[i])
-                tempx = np.sign(np.real(tempout))
-                tempt = np.abs(np.real(tempout))
-                rt[k,indextrack] = tempt
-                acc[k,indextrack] = (tempx + 1)/2
-                indextrack += ntrials
-    elif model=='modela':
-        for k in range(ncohers):
-            for j in range(nspats):
-                indextrack = np.arange(ntrials)
-                for i in range(nsamples):
-                    tempout = simulratcliff(N=ntrials, Alpha= alphahier[i,j], Tau= terhier[i], Beta=.5, 
-                        Nu= deltahier[i,k], Eta = etahier[i])
-                    tempx = np.sign(np.real(tempout))
-                    tempt = np.abs(np.real(tempout))
-                    rt[k*2+j,indextrack] = tempt
-                    acc[k*2+j,indextrack] = (tempx + 1)/2
-                    indextrack += ntrials
-    elif model=='modelp':
-        for k in range(nconds):
-            indextrack = np.arange(ntrials)
-            for i in range(nsamples):
-                tempout = simulratcliff(N=ntrials, Alpha= alphahier[i], Tau= terhier[i,j], Beta=.5, 
-                    Nu= deltahier[i,int(k/2)], Eta = etahier[i])
-                tempx = np.sign(np.real(tempout))
-                tempt = np.abs(np.real(tempout))
-                rt[k,indextrack] = tempt
-                acc[k,indextrack] = (tempx + 1)/2
-                indextrack += ntrials
-    return rt,acc
-
-
-def boot_genparam(model='modelt', nboots = 1, nsamples=100, ntrials=30):
+def boot_genparam(model='modelt', nboots = 1, nsamples=1000, ntrials=300):
     
     if not os.path.isfile('r_square/genparam_'+str(nboots)+'.mat'): 
 
@@ -243,6 +177,75 @@ def boot_genparam(model='modelt', nboots = 1, nsamples=100, ntrials=30):
         genparam_acc = genparam['model_acc']
 
     return genparam_rt, genparam_acc
+
+def get_posterior_predictives_group(samples, nsamples=1000, ntrials=300, model = 'modelt'):
+    """Calculates posterior predictives of choices and response times.
+       Hierarchical and condition-level parameters
+    """      
+    nconds = 4  # Number of conditions
+    ncohers = 2 # Number of spatial   
+    nspats = 2  # Number of coherence
+    
+    rt = np.zeros((nconds,nsamples*ntrials))
+    acc = np.zeros((nconds,nsamples*ntrials))
+    
+    # hierarchical parameters
+    deltahier = samples['deltahier']
+    terhier = samples['terhier']
+    alphahier = samples['alphahier']
+    etahier = samples['etahier']
+    
+        
+    #choose randomely 1000 samples
+    indices = np.random.choice(range(eta.shape[0]),nsamples)
+    
+    if model=='modelt':
+        for k in range(ncohers):
+            for j in range(nspats):             
+                indextrack = np.arange(ntrials)
+                for i in indices:
+                    tempout = simulratcliff(N=ntrials, Alpha= alphahier[i], Tau= terhier[i,j], Beta=.5, 
+                        Nu= deltahier[i,k], Eta = etahier[i])
+                    tempx = np.sign(np.real(tempout))
+                    tempt = np.abs(np.real(tempout))
+                    rt[k*2+j,indextrack] = tempt
+                    acc[k*2+j,indextrack] = (tempx + 1)/2
+                    indextrack += ntrials
+    elif model=='modelv':
+        for k in range(nconds):
+            indextrack = np.arange(ntrials)
+            for i in indices:
+                tempout = simulratcliff(N=ntrials, Alpha= alphahier[i], Tau= terhier[i], Beta=.5, 
+                    Nu= deltahier[i,k], Eta= etahier[i])
+                tempx = np.sign(np.real(tempout))
+                tempt = np.abs(np.real(tempout))
+                rt[k,indextrack] = tempt
+                acc[k,indextrack] = (tempx + 1)/2
+                indextrack += ntrials
+    elif model=='modela':
+        for k in range(ncohers):
+            for j in range(nspats):
+                indextrack = np.arange(ntrials)
+                for i in indices:
+                    tempout = simulratcliff(N=ntrials, Alpha= alphahier[i,j], Tau= terhier[i], Beta=.5, 
+                        Nu= deltahier[i,k], Eta = etahier[i])
+                    tempx = np.sign(np.real(tempout))
+                    tempt = np.abs(np.real(tempout))
+                    rt[k*2+j,indextrack] = tempt
+                    acc[k*2+j,indextrack] = (tempx + 1)/2
+                    indextrack += ntrials
+    elif model=='modelp':
+        for k in range(nconds):
+            indextrack = np.arange(ntrials)
+            for i in indices:
+                tempout = simulratcliff(N=ntrials, Alpha= alphahier[i], Tau= terhier[i,j], Beta=.5, 
+                    Nu= deltahier[i,int(k/2)], Eta = etahier[i])
+                tempx = np.sign(np.real(tempout))
+                tempt = np.abs(np.real(tempout))
+                rt[k,indextrack] = tempt
+                acc[k,indextrack] = (tempx + 1)/2
+                indextrack += ntrials
+    return rt,acc
 
 def get_posterior_predictives_individual(samples, part=1, nsamples=1000, ntrials=300, model = 'modelt'):
     """Calculates posterior predictives of choices and response times.
