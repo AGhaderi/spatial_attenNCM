@@ -2,6 +2,8 @@ import numpy as np
 
 
 # Simulate diffusion models
+# It was taken from bellow
+# https://github.com/mdnunez/pyhddmjags/blob/master/pyhddmjagsutils.py
 def simulratcliff(N=100,Alpha=1,Tau=.4,Nu=1,Beta=.5,rangeTau=0,rangeBeta=0,Eta=.3, Varsigma=1):
     """
     SIMULRATCLIFF  Generates data according to a drift diffusion model with optional trial-to-trial variability
