@@ -140,11 +140,14 @@ def simulratcliff(N=100,Alpha=1,Tau=.4,Nu=1,Beta=.5,rangeTau=0,rangeBeta=0,Eta=.
     result = T*XX
     return result
 
-def boot_genparam(model='modelt', nboots = 1, nsamples=1000, ntrials=300):
-    
-    if not os.path.isfile('r_square/genparam_'+str(nboots)+'.mat'): 
+def boot_genparam(model='modelt', run = 1, nsamples=1000, ntrials=300):
+    """
+    Posterior predictive distribution for a spesific run and model
+    """
+    if not os.path.isfile('r_square/genparam_'+str(run)+'.mat'): 
 
-        # nboots is related to bootstraping run which is 1 to 30
+        # run is related to bootstraping run which is 1 to 30
+        
         # number of condition
         nconds = 4
 
@@ -158,7 +161,7 @@ def boot_genparam(model='modelt', nboots = 1, nsamples=1000, ntrials=300):
         genparam_rt = np.zeros((nparts,nconds,nsamples*ntrials))
         genparam_acc = np.zeros((nparts,nconds,nsamples*ntrials))
 
-        pkl = utils.load_pickle("boot/"+str(nboots)+"/"+ str(nboots) + "_"+model +".pkl")
+        pkl = utils.load_pickle("boot/"+str(run)+"/"+ str(run) + "_"+model +".pkl")
         fit = pkl['fit']
         #samples of posterior parameters
         samples = fit.extract(permuted=True)
@@ -173,10 +176,10 @@ def boot_genparam(model='modelt', nboots = 1, nsamples=1000, ntrials=300):
         genparam  = dict()
         genparam['model_rt'] = genparam_rt
         genparam ['model_acc'] = genparam_acc
-        sio.savemat('r_square/genparam_'+str(nboots)+'.mat', genparam)
+        sio.savemat('r_square/genparam_'+str(run)+'.mat', genparam)
 
     else:
-        genparam = sio.loadmat('r_square//genparam_'+str(nboots)+'.mat')
+        genparam = sio.loadmat('r_square//genparam_'+str(run)+'.mat')
         genparam_rt = genparam['model_rt']
         genparam_acc = genparam['model_acc']
 
