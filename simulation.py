@@ -142,11 +142,10 @@ def simulratcliff(N=100,Alpha=1,Tau=.4,Nu=1,Beta=.5,rangeTau=0,rangeBeta=0,Eta=.
 
 def boot_genparam(model='modelt', run = 1, nsamples=1000, ntrials=300):
     """
+    run is related to bootstraping run which is 1 to 30
     Posterior predictive distribution for a spesific run and model
     """
     if not os.path.isfile('r_square/genparam_'+str(run)+'.mat'): 
-
-        # run is related to bootstraping run which is 1 to 30
         
         # number of condition
         nconds = 4
