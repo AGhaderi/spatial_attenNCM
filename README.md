@@ -1,2 +1,2 @@
-# Spatial attention neuro-cognitive model.
+# Spatial Attention Neuro-Cognitive Modeling.
 
