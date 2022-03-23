@@ -1,1 +1,2 @@
-# ddm_pdm
+# Spatial attention neuro-cognitive model.
+
