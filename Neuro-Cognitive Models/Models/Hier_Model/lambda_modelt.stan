@@ -1,5 +1,5 @@
 functions { 
-  /* Model 3
+  /* Model 3 
    * Ratcliff diffusion log-PDF for a single response (adapted from brms 1.10.2 and hddm 0.7.8)
    * Arguments: 
    *   Y: acc*rt in seconds (negative and positive RTs for incorrect and correct responses respectively)
