@@ -1,4 +1,5 @@
 #!/home/a.ghaderi/.conda/envs/envjm/bin/python
+# Model 3
 import pystan 
 import pandas as pd
 import numpy as np
