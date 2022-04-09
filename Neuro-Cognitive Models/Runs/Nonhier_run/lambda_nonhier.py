@@ -7,7 +7,7 @@ import sys
 sys.path.append('../../')
 import utils
 
-parts = 15
+parts = 1
 data = utils.get_data()          #loading dateset
 data = data[data['participant']==parts]
 
