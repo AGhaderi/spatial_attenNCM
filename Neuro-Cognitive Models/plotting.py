@@ -3,8 +3,7 @@ from scipy.stats import gaussian_kde
 import numpy as np
 import seaborn as sns
  
-# Codes are taken from bellow
-# https://github.com/laurafontanesi/rlssm/blob/main/rlssm/utils.py 
+# Taken from https://github.com/laurafontanesi/rlssm/blob/main/rlssm/utils.py 
 def bci(x, alpha=0.05):
     """Calculate Bayesian credible interval (BCI).
     Parameters
