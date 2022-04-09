@@ -1,4 +1,5 @@
 #!/home/a.ghaderi/.conda/envs/envjm/bin/python
+# Mode 3
 import pystan 
 import pandas as pd
 import numpy as np
@@ -6,7 +7,7 @@ import sys
 sys.path.append('../../')
 import utils
 
-data = pd.read_csv('sim3.csv')      #loading dateset
+data = pd.read_csv('sim1.csv')      #loading dateset
 
 mis = np.where((data['n200lat']<.05)|(data['n200lat']>.250))[0] # missing data for n200lat
 obs = np.where((data['n200lat']>.05)&(data['n200lat']<.250))[0] # observation and missing data for n200lat
