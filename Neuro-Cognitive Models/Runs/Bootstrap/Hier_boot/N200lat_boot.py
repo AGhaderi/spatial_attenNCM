@@ -9,7 +9,7 @@ import utils
 #loading dateset
 data = utils.get_data()      
 #non parametric bootstrap
-run = 30
+run = 1 # 1,...,30
 rand_parts, boot_data = utils.nonparaboot(y=data['y'].to_numpy(), parts=data['participant'].to_numpy(), 
                                 cond_coher=data['cond_coher'].to_numpy(), cond_spat=data['cond_spat'].to_numpy(),
                                 conds=data['conds'].to_numpy(), n200lat=data['n200lat'].to_numpy(), run=str(run))
