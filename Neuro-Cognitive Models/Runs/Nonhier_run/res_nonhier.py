@@ -1,4 +1,5 @@
 #!/home/a.ghaderi/.conda/envs/envjm/bin/python
+# Model 2
 import pystan 
 import pandas as pd
 import numpy as np
@@ -6,7 +7,7 @@ import sys
 sys.path.append('../../')
 import utils
 
-parts = 15
+parts = 1 
 data = utils.get_data()          #loading dateset
 data = data[data['participant']==parts]
 
