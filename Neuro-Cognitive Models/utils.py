@@ -5,8 +5,6 @@ import seaborn as sns
 import os
 import matplotlib.pyplot as plt
 
-# Some codes are taken from bellow
-# https://github.com/laurafontanesi/rlssm/blob/main/rlssm/utils.py 
 def rhat(stan_fit, pars):
     """Extracts rhat from stan model's summary as a pandas dataframe.
     Only considers parameters (Not all variables specified in stan's model).
@@ -34,7 +32,8 @@ def n_eff(stan_fit, pars):
     effective_num = pd.DataFrame({'n_eff': np.array(summary['summary'])[:, 8],
                                 'variable': summary['summary_rownames']})
     return effective_num
-  
+
+# Taken from https://github.com/laurafontanesi/rlssm/blob/main/rlssm/utils.py 
 def waic(log_likelihood):
     """Calculates the Watanabe-Akaike information criteria.
     Calculates pWAIC1 and pWAIC2
