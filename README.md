@@ -1,4 +1,5 @@
-# The current repository is for a project named "Neuro-cognitive models of single-trial EEG measures describe latent effects of spatial attention during perceptual decision making" at the Shahid Beheshti University, by Amin Ghaderi-Kangavari, Jamal Amani Rad, Kourosh Parand, Michael D Nunez
+# spatial_attenNCM
+The current repository is for a project named "Neuro-cognitive models of single-trial EEG measures describe latent effects of spatial attention during perceptual decision making" at the Shahid Beheshti University, by Amin Ghaderi-Kangavari, Jamal Amani Rad, Kourosh Parand, Michael D Nunez
 
 
 
