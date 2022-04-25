@@ -19,6 +19,10 @@ Visual perceptual decision-making involves multiple components including visual 
 
 ## See also
 
-[rlssm package](https://github.com/laurafontanesi/rlssm): a package to fit and evaluate Drift-Diffusion Models (and Reinforcement Learning models) using pystan. Some of these functions were used in plotting.py of this repository.
+[hddm package](https://github.com/hddm-devs/hddm): a package to fit and evaluate hierarchical Drift-Diffusion Models using pyMC. We addapted the Stan functions of DDMs with intrinsic trial-to-trial variability from the likelihood derivations in this package. 
 
-[pyhddmjags package](https://github.com/mdnunez/pyhddmjags): some example scripts to fit and evaluate Drift-Diffusion Models using pyjags and pystan.
+[rlssm package](https://github.com/laurafontanesi/rlssm): a package to fit and evaluate hierarchical Drift-Diffusion Models (and Reinforcement Learning models) using pystan. Some of these functions were used in plotting.py of this repository.
+
+[pyhddmjags package](https://github.com/mdnunez/pyhddmjags): some example scripts to fit and evaluate hierarchical Drift-Diffusion Models using pyjags and pystan.
+
+[brms package](https://github.com/paul-buerkner/brms): a package to fit multiple models, including Drift-Diffusion Models, in Stan using R. We adapted the Stan functions of DDMs with intrinsic trial-to-trial variability from the Stan code generated from brms.
