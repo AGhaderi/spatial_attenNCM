@@ -20,3 +20,5 @@ Visual perceptual decision-making involves multiple components including visual 
 ## See also
 
 [rlssm package](https://github.com/laurafontanesi/rlssm)
+
+[pyhddmjags package](https://github.com/mdnunez/pyhddmjags)
