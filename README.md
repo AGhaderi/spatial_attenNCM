@@ -19,6 +19,6 @@ Visual perceptual decision-making involves multiple components including visual 
 
 ## See also
 
-[rlssm package](https://github.com/laurafontanesi/rlssm)
+[rlssm package](https://github.com/laurafontanesi/rlssm): a package to fit and evaluate Drift-Diffusion Models (and Reinforcement Learning models) using pystan. Some of these functions were used in plotting.py of this repository.
 
-[pyhddmjags package](https://github.com/mdnunez/pyhddmjags)
+[pyhddmjags package](https://github.com/mdnunez/pyhddmjags): some example scripts to fit and evaluate Drift-Diffusion Models using pyjags and pystan.
