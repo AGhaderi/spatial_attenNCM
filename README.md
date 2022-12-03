@@ -4,7 +4,7 @@ The current repository is for a project named "Neuro-cognitive models of single-
 **Authors: Amin Ghaderi-Kangavari, Jamal Amani Rad, Kourosh Parand, & Michael D. Nunez**
 
 ### Citation
-Ghaderi-Kangavari, A., Rad, J. A., Parand, K., & Nunez, M. D.  (2022). [Neuro-cognitive models of single-trial EEG measures describe latent effects of spatial attention during perceptual decision making](https://www.biorxiv.org/content/10.1101/2022.04.07.487571v1) bioRxiv 2022.04.07.487571; doi: https://doi.org/10.1101/2022.04.07.487571 
+Ghaderi-Kangavari, A., Rad, J. A., Parand, K., & Nunez, M. D.  (2022). [Neuro-cognitive models of single-trial EEG measures describe latent effects of spatial attention during perceptual decision making], Journal of Mathematical Psychology, 111, 0022-2496; doi: https://doi.org/10.1016/j.jmp.2022.102725 
 
 ## Prerequisites
 
